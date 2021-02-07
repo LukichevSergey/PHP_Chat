@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+.wrapper {
+    display: flex;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 1100px;
+}
+
+.messages {
+    margin-right: 150px;
+}
+
+.messages__list {
+    margin-top: 20px;
+}
+
+.messages__item {
+    border: 1px solid #000;
+    border-radius: 5px;
+    max-width: 350px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
