@@ -3,7 +3,6 @@
 namespace Project\Controllers;
 use project\models\Chat;
 use project\models\Comment;
-use project\controllers\Protect;
 
 
 class ChatController extends \Core\Controller
