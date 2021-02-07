@@ -2,7 +2,7 @@
 
 
 namespace Project\Models;
-
+use project\controllers\Protect;
 
 class Chat extends \Core\Model
 {

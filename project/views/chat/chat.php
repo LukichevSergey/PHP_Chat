@@ -5,8 +5,8 @@
             <?php foreach ($messages as $message): ?>
                 <li class="messages__item">
                     <a href="message/<?= $message['id'] ?>">
-                        <h3 class="messages__headline"><?= $message['heading'] ?></h3>
-                        <p class="messages__summary"><?= $message['summary'] ?></p>
+                        <h3 class="messages__headline"><?= htmlspecialchars($message['heading']) ?></h3>
+                        <p class="messages__summary"><?= htmlspecialchars($message['summary']) ?></p>
                     </a>
                 </li>
             <?php endforeach; ?>

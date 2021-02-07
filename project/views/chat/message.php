@@ -1,13 +1,13 @@
 <a href="/">Назад</a>
 <div class="message">
-    <h2><?= $message['heading'] ?></h2>
-    <p><?= $message['full'] ?></p>
+    <h2><?= htmlspecialchars($message['heading'])  ?></h2>
+    <p><?= htmlspecialchars($message['full']) ?></p>
 </div>
 <a href="/editMessage/<?= $message['id'] ?>">Редактировать сообщение</a>
 <div class="comments">
     <ul class="comments__list">
         <?php foreach ($comments as $comment): ?>
-            <li class="comments__item"><?= $comment['comment'] ?></li>
+            <li class="comments__item"><?= htmlspecialchars($comment['comment']) ?></li>
         <?php endforeach; ?>
     </ul>
     <form method="post" action="newComment/<?= $message['id'] ?>">

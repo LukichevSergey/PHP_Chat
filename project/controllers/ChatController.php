@@ -3,10 +3,12 @@
 namespace Project\Controllers;
 use project\models\Chat;
 use project\models\Comment;
+use project\controllers\Protect;
 
 
 class ChatController extends \Core\Controller
 {
+
     public function showAllMessages()
     {
         $this->title = 'Список сообщений';
@@ -31,15 +33,28 @@ class ChatController extends \Core\Controller
 
     public function newMessage()
     {
-        $newMessage = (new Chat) -> newMessage();
-        header("Location: /");
+        if(strlen($_POST['headline']) > 0 &&
+            strlen($_POST['author']) > 0 &&
+            strlen($_POST['summary']) > 0 &&
+            strlen($_POST['full']) > 0)
+        {
+            $newMessage = (new Chat) -> newMessage();
+            header("Location: /");
+        } else{
+            header("Location: /");
+        }
+
     }
 
     public function newComment($params)
     {
-        $message = (new Chat) ->getMessage($params['id']);
-        $newComment = (new Comment) -> newComment($params['id']);
-        header("Location: /message/$message[id]");
+        if(strlen($_POST['addComment']) > 0)
+        {
+            $newComment = (new Comment) -> newComment($params['id']);
+            header("Location: /message/$params[id]");
+        } else{
+            header("Location: /message/$params[id]");
+        }
     }
 
     public function editMessage($params)
@@ -56,7 +71,15 @@ class ChatController extends \Core\Controller
 
     public function saveMessage($params)
     {
-        $editsMessage = (new Chat) -> saveMessage($params['id']);
-        header("Location: /message/$params[id]");
+        if(strlen($_POST['headline']) > 0 &&
+            strlen($_POST['author']) > 0 &&
+            strlen($_POST['summary']) > 0 &&
+            strlen($_POST['full']) > 0)
+        {
+            $editsMessage = (new Chat) -> saveMessage($params['id']);
+            header("Location: /message/$params[id]");
+        } else{
+            header("Location: /message/$params[id]");
+        }
     }
 }
